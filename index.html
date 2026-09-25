@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>WhiteNov</title>
 
-  <!-- Ícones -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
   <style>
+
     * {
       box-sizing: border-box;
     }
@@ -19,7 +18,7 @@
       --card: #0b0b0b;
       --white: #ffffff;
       --gray: #888888;
-      --dark-gray: #1a1a1a;
+      --border: #292929;
       --glow: rgba(255, 255, 255, 0.15);
     }
 
@@ -161,6 +160,7 @@
       50% {
         transform: translateY(-7px);
       }
+
     }
 
     /* SUBTÍTULO */
@@ -173,12 +173,14 @@
       margin-bottom: 24px;
     }
 
-    /* PESQUISA */
+    /* BARRA DE PESQUISA */
 
     .search-box {
       display: flex;
 
       gap: 8px;
+
+      width: 100%;
     }
 
     #appName {
@@ -190,7 +192,7 @@
 
       background: #050505;
 
-      border: 1px solid #292929;
+      border: 1px solid var(--border);
 
       border-radius: 9px;
 
@@ -241,53 +243,8 @@
         0 0 15px rgba(255, 255, 255, 0.15);
     }
 
-    /* APLICATIVOS */
-
-    .apps {
-      display: grid;
-
-      grid-template-columns: repeat(2, 1fr);
-
-      gap: 9px;
-
-      margin-top: 25px;
-    }
-
-    .app {
-      padding: 13px 10px;
-
-      background: #050505;
-
-      border: 1px solid #252525;
-
-      border-radius: 9px;
-
-      color: #cccccc;
-
-      cursor: pointer;
-
-      transition: 0.2s;
-    }
-
-    .app:hover {
-      border-color: #ffffff;
-
-      color: white;
-
-      background: #111111;
-
-      box-shadow:
-        0 0 12px rgba(255, 255, 255, 0.08);
-
-      transform: translateY(-2px);
-    }
-
-    .icon {
-      display: block;
-
-      margin-bottom: 5px;
-
-      font-size: 20px;
+    #searchButton:active {
+      transform: scale(0.97);
     }
 
     /* MENSAGEM */
@@ -337,6 +294,7 @@
       #searchButton {
         padding: 13px;
       }
+
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -345,10 +303,8 @@
         animation: none;
       }
 
-      .app {
-        transition: none;
-      }
     }
+
   </style>
 </head>
 
@@ -385,136 +341,10 @@
 
     </div>
 
-    <section class="apps">
-
-      <div class="app" onclick="abrirApp('youtube')">
-        <span class="icon"><i class="fa-brands fa-youtube"></i></span>
-        YouTube
-      </div>
-
-      <div class="app" onclick="abrirApp('instagram')">
-        <span class="icon"><i class="fa-brands fa-instagram"></i></span>
-        Instagram
-      </div>
-
-      <div class="app" onclick="abrirApp('whatsapp')">
-        <span class="icon"><i class="fa-brands fa-whatsapp"></i></span>
-        WhatsApp
-      </div>
-
-      <div class="app" onclick="abrirApp('tiktok')">
-        <span class="icon"><i class="fa-brands fa-tiktok"></i></span>
-        TikTok
-      </div>
-
-      <div class="app" onclick="abrirApp('discord')">
-        <span class="icon"><i class="fa-brands fa-discord"></i></span>
-        Discord
-      </div>
-
-      <div class="app" onclick="abrirApp('spotify')">
-        <span class="icon"><i class="fa-brands fa-spotify"></i></span>
-        Spotify
-      </div>
-
-      <div class="app" onclick="abrirApp('github')">
-        <span class="icon"><i class="fa-brands fa-github"></i></span>
-        GitHub
-      </div>
-
-      <div class="app" onclick="abrirApp('reddit')">
-        <span class="icon"><i class="fa-brands fa-reddit"></i></span>
-        Reddit
-      </div>
-
-      <div class="app" onclick="abrirApp('twitch')">
-        <span class="icon"><i class="fa-brands fa-twitch"></i></span>
-        Twitch
-      </div>
-
-      <div class="app" onclick="abrirApp('google')">
-        <span class="icon"><i class="fa-brands fa-google"></i></span>
-        Google
-      </div>
-
-      <div class="app" onclick="abrirApp('gmail')">
-        <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-        Gmail
-      </div>
-
-      <div class="app" onclick="abrirApp('telegram')">
-        <span class="icon"><i class="fa-brands fa-telegram"></i></span>
-        Telegram
-      </div>
-
-      <div class="app" onclick="abrirApp('facebook')">
-        <span class="icon"><i class="fa-brands fa-facebook"></i></span>
-        Facebook
-      </div>
-
-      <div class="app" onclick="abrirApp('x')">
-        <span class="icon"><i class="fa-brands fa-x-twitter"></i></span>
-        X
-      </div>
-
-      <div class="app" onclick="abrirApp('steam')">
-        <span class="icon"><i class="fa-brands fa-steam"></i></span>
-        Steam
-      </div>
-
-      <div class="app" onclick="abrirApp('roblox')">
-        <span class="icon"><i class="fa-solid fa-gamepad"></i></span>
-        Roblox
-      </div>
-
-      <div class="app" onclick="abrirApp('netflix')">
-        <span class="icon"><i class="fa-solid fa-film"></i></span>
-        Netflix
-      </div>
-
-      <div class="app" onclick="abrirApp('primevideo')">
-        <span class="icon"><i class="fa-brands fa-amazon"></i></span>
-        Prime Video
-      </div>
-
-      <div class="app" onclick="abrirApp('crunchyroll')">
-        <span class="icon"><i class="fa-solid fa-play"></i></span>
-        Crunchyroll
-      </div>
-
-      <div class="app" onclick="abrirApp('pinterest')">
-        <span class="icon"><i class="fa-brands fa-pinterest"></i></span>
-        Pinterest
-      </div>
-
-      <div class="app" onclick="abrirApp('linkedin')">
-        <span class="icon"><i class="fa-brands fa-linkedin"></i></span>
-        LinkedIn
-      </div>
-
-      <div class="app" onclick="abrirApp('chatgpt')">
-        <span class="icon"><i class="fa-solid fa-robot"></i></span>
-        ChatGPT
-      </div>
-
-      <div class="app" onclick="abrirApp('googledrive')">
-        <span class="icon"><i class="fa-brands fa-google-drive"></i></span>
-        Google Drive
-      </div>
-
-      <div class="app" onclick="abrirApp('googlemaps')">
-        <span class="icon"><i class="fa-solid fa-map-location-dot"></i></span>
-        Google Maps
-      </div>
-
-      <div class="app" onclick="abrirApp('playstore')">
-        <span class="icon"><i class="fa-brands fa-google-play"></i></span>
-        Play Store
-      </div>
-
-    </section>
-
-    <div class="message" id="message"></div>
+    <div
+      class="message"
+      id="message">
+    </div>
 
     <div class="footer">
       WHITENOV <span>XY</span> • APP DIRECTOR
@@ -522,58 +352,349 @@
 
   </main>
 
+
   <script>
 
     const apps = {
 
+      /* REDES SOCIAIS */
+
       youtube: "https://www.youtube.com",
+      yt: "https://www.youtube.com",
+
       instagram: "https://www.instagram.com",
+      insta: "https://www.instagram.com",
+
       whatsapp: "https://web.whatsapp.com",
+      zap: "https://web.whatsapp.com",
+
       tiktok: "https://www.tiktok.com",
       discord: "https://discord.com",
-      spotify: "https://open.spotify.com",
-      github: "https://github.com",
       reddit: "https://www.reddit.com",
       twitch: "https://www.twitch.tv",
-      google: "https://www.google.com",
-      gmail: "https://mail.google.com",
-      telegram: "https://web.telegram.org",
       facebook: "https://www.facebook.com",
-      x: "https://x.com",
-      steam: "https://store.steampowered.com",
-      roblox: "https://www.roblox.com",
-      netflix: "https://www.netflix.com",
-      primevideo: "https://www.primevideo.com",
-      crunchyroll: "https://www.crunchyroll.com",
+      telegram: "https://web.telegram.org",
       pinterest: "https://www.pinterest.com",
       linkedin: "https://www.linkedin.com",
-      chatgpt: "https://chatgpt.com",
+      x: "https://x.com",
+      twitter: "https://x.com",
+      threads: "https://www.threads.net",
+      tumblr: "https://www.tumblr.com",
+      snapchat: "https://www.snapchat.com",
+      quora: "https://www.quora.com",
+
+      /* GOOGLE */
+
+      google: "https://www.google.com",
+      gmail: "https://mail.google.com",
+
       googledrive: "https://drive.google.com",
+      gdrive: "https://drive.google.com",
+      drive: "https://drive.google.com",
+
       googlemaps: "https://maps.google.com",
-      playstore: "https://play.google.com/store"
+      maps: "https://maps.google.com",
+      mapas: "https://maps.google.com",
+
+      googlemeet: "https://meet.google.com",
+      meet: "https://meet.google.com",
+
+      googlephotos: "https://photos.google.com",
+      photos: "https://photos.google.com",
+
+      googletranslate: "https://translate.google.com",
+      translate: "https://translate.google.com",
+
+      googleplay: "https://play.google.com",
+      playstore: "https://play.google.com/store",
+      play: "https://play.google.com/store",
+
+      /* MICROSOFT */
+
+      microsoft: "https://www.microsoft.com",
+      outlook: "https://outlook.live.com",
+      onedrive: "https://onedrive.live.com",
+      teams: "https://teams.microsoft.com",
+      bing: "https://www.bing.com",
+      xbox: "https://www.xbox.com",
+
+      /* STREAMING */
+
+      netflix: "https://www.netflix.com",
+
+      primevideo: "https://www.primevideo.com",
+      prime: "https://www.primevideo.com",
+
+      disneyplus: "https://www.disneyplus.com",
+      disney: "https://www.disneyplus.com",
+
+      max: "https://www.max.com",
+      hbo: "https://www.max.com",
+
+      crunchyroll: "https://www.crunchyroll.com",
+
+      paramount: "https://www.paramountplus.com",
+
+      globoplay: "https://globoplay.globo.com",
+
+      /* MÚSICA */
+
+      spotify: "https://open.spotify.com",
+      soundcloud: "https://soundcloud.com",
+      deezer: "https://www.deezer.com",
+      tidal: "https://tidal.com",
+      lastfm: "https://www.last.fm",
+      bandcamp: "https://bandcamp.com",
+
+      /* JOGOS */
+
+      steam: "https://store.steampowered.com",
+
+      epicgames: "https://store.epicgames.com",
+      epic: "https://store.epicgames.com",
+
+      roblox: "https://www.roblox.com",
+
+      minecraft: "https://www.minecraft.net",
+
+      riotgames: "https://www.riotgames.com",
+      riot: "https://www.riotgames.com",
+
+      valorant: "https://playvalorant.com",
+
+      leagueoflegends:
+        "https://www.leagueoflegends.com",
+
+      lol:
+        "https://www.leagueoflegends.com",
+
+      playstation:
+        "https://www.playstation.com",
+
+      ps:
+        "https://www.playstation.com",
+
+      nintendo:
+        "https://www.nintendo.com",
+
+      ea:
+        "https://www.ea.com",
+
+      ubisoft:
+        "https://www.ubisoft.com",
+
+      battle:
+        "https://battle.net",
+
+      battlenet:
+        "https://battle.net",
+
+      gog:
+        "https://www.gog.com",
+
+      itch:
+        "https://itch.io",
+
+      /* ANIME / MANGÁ */
+
+      myanimelist:
+        "https://myanimelist.net",
+
+      mal:
+        "https://myanimelist.net",
+
+      anilist:
+        "https://anilist.co",
+
+      mangadex:
+        "https://mangadex.org",
+
+      webtoons:
+        "https://www.webtoons.com",
+
+      viz:
+        "https://www.viz.com",
+
+      /* COMPRAS */
+
+      amazon:
+        "https://www.amazon.com.br",
+
+      mercadolivre:
+        "https://www.mercadolivre.com.br",
+
+      mercado:
+        "https://www.mercadolivre.com.br",
+
+      shopee:
+        "https://shopee.com.br",
+
+      aliexpress:
+        "https://www.aliexpress.com",
+
+      ebay:
+        "https://www.ebay.com",
+
+      magalu:
+        "https://www.magazineluiza.com.br",
+
+      kabum:
+        "https://www.kabum.com.br",
+
+      americanas:
+        "https://www.americanas.com.br",
+
+      /* PRODUTIVIDADE */
+
+      notion:
+        "https://www.notion.so",
+
+      trello:
+        "https://trello.com",
+
+      evernote:
+        "https://evernote.com",
+
+      todoist:
+        "https://todoist.com",
+
+      slack:
+        "https://slack.com",
+
+      zoom:
+        "https://zoom.us",
+
+      dropbox:
+        "https://www.dropbox.com",
+
+      canva:
+        "https://www.canva.com",
+
+      figma:
+        "https://www.figma.com",
+
+      /* DESENVOLVIMENTO */
+
+      github:
+        "https://github.com",
+
+      gitlab:
+        "https://gitlab.com",
+
+      bitbucket:
+        "https://bitbucket.org",
+
+      stackoverflow:
+        "https://stackoverflow.com",
+
+      codepen:
+        "https://codepen.io",
+
+      replit:
+        "https://replit.com",
+
+      vercel:
+        "https://vercel.com",
+
+      netlify:
+        "https://www.netlify.com",
+
+      /* INTELIGÊNCIA ARTIFICIAL */
+
+      chatgpt:
+        "https://chatgpt.com",
+
+      openai:
+        "https://openai.com",
+
+      claude:
+        "https://claude.ai",
+
+      gemini:
+        "https://gemini.google.com",
+
+      perplexity:
+        "https://www.perplexity.ai",
+
+      copilot:
+        "https://copilot.microsoft.com",
+
+      huggingface:
+        "https://huggingface.co",
+
+      /* DESIGN / EDIÇÃO */
+
+      adobe:
+        "https://www.adobe.com",
+
+      photoshop:
+        "https://www.adobe.com/products/photoshop.html",
+
+      premiere:
+        "https://www.adobe.com/products/premiere.html",
+
+      capcut:
+        "https://www.capcut.com",
+
+      pixlr:
+        "https://pixlr.com",
+
+      removebg:
+        "https://www.remove.bg",
+
+      unsplash:
+        "https://unsplash.com",
+
+      pexels:
+        "https://www.pexels.com",
+
+      /* ESTUDOS */
+
+      wikipedia:
+        "https://www.wikipedia.org",
+
+      wiki:
+        "https://www.wikipedia.org",
+
+      duolingo:
+        "https://www.duolingo.com",
+
+      coursera:
+        "https://www.coursera.org",
+
+      khanacademy:
+        "https://www.khanacademy.org",
+
+      brainly:
+        "https://brainly.com.br",
+
+      quizlet:
+        "https://quizlet.com",
+
+      /* FILMES / SÉRIES */
+
+      imdb:
+        "https://www.imdb.com",
+
+      letterboxd:
+        "https://letterboxd.com",
+
+      rotten:
+        "https://www.rottentomatoes.com",
+
+      rottentomatoes:
+        "https://www.rottentomatoes.com"
 
     };
 
 
-    function abrirApp(nome) {
-
-      if (apps[nome]) {
-
-        window.location.href = apps[nome];
-
-      }
-
-    }
-
-
     function irParaApp() {
 
-      const input =
-        document
-          .getElementById("appName")
-          .value
-          .toLowerCase()
-          .trim();
+      const input = document
+        .getElementById("appName")
+        .value
+        .toLowerCase()
+        .trim();
 
       const message =
         document.getElementById("message");
@@ -638,5 +759,5 @@
   </script>
 
 </body>
-</html>
 
+</html>
