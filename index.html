@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>WhiteNov</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --black: #000000;
+      --card: #0b0b0b;
+      --white: #ffffff;
+      --gray: #888888;
+      --dark-gray: #1a1a1a;
+      --glow: rgba(255, 255, 255, 0.15);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 20px;
+
+      font-family: Arial, sans-serif;
+
+      background: #000000;
+      color: white;
+    }
+
+    /* LINHAS LATERAIS */
+
+    body::before,
+    body::after {
+      content: "";
+
+      position: fixed;
+      left: 0;
+
+      width: 100%;
+      height: 1px;
+
+      background: #ffffff;
+
+      opacity: 0.2;
+
+      box-shadow: 0 0 12px var(--glow);
+    }
+
+    body::before {
+      top: 8%;
+    }
+
+    body::after {
+      bottom: 8%;
+    }
+
+    /* CARD PRINCIPAL */
+
+    .card {
+      width: 100%;
+      max-width: 520px;
+
+      padding: 32px;
+
+      background: var(--card);
+
+      border: 1px solid #333333;
+
+      border-radius: 18px;
+
+      box-shadow:
+        0 0 25px rgba(255, 255, 255, 0.04),
+        0 20px 60px rgba(0, 0, 0, 0.9);
+
+      text-align: center;
+
+      position: relative;
+    }
+
+    .card::before,
+    .card::after {
+      content: "";
+
+      position: absolute;
+
+      left: 35px;
+      right: 35px;
+
+      height: 1px;
+
+      background: #ffffff;
+
+      box-shadow: 0 0 12px var(--glow);
+    }
+
+    .card::before {
+      top: -1px;
+    }
+
+    .card::after {
+      bottom: -1px;
+    }
+
+    /* LOGO */
+
+    .logo {
+      margin: 0;
+
+      font-size: 34px;
+
+      font-weight: 800;
+
+      letter-spacing: 2px;
+
+      color: #ffffff;
+
+      text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.12);
+    }
+
+    .logo span {
+      color: #888888;
+    }
+
+    /* SLOGAN */
+
+    .slogan {
+      margin: 12px 0 26px;
+
+      color: #ffffff;
+
+      font-size: 14px;
+
+      letter-spacing: 1px;
+
+      animation: flutuar 2.8s ease-in-out infinite;
+
+      text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.12);
+    }
+
+    @keyframes flutuar {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-7px);
+      }
+    }
+
+    /* SUBTÍTULO */
+
+    .subtitle {
+      color: var(--gray);
+
+      font-size: 13px;
+
+      margin-bottom: 24px;
+    }
+
+    /* PESQUISA */
+
+    .search-box {
+      display: flex;
+
+      gap: 8px;
+    }
+
+    #appName {
+      flex: 1;
+
+      min-width: 0;
+
+      padding: 14px;
+
+      background: #050505;
+
+      border: 1px solid #292929;
+
+      border-radius: 9px;
+
+      color: white;
+
+      outline: none;
+
+      font-size: 15px;
+
+      transition: 0.2s;
+    }
+
+    #appName::placeholder {
+      color: #555555;
+    }
+
+    #appName:focus {
+      border-color: #ffffff;
+
+      box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.12);
+    }
+
+    /* BOTÃO */
+
+    #searchButton {
+      padding: 0 20px;
+
+      border: 1px solid #ffffff;
+
+      border-radius: 9px;
+
+      background: #ffffff;
+
+      color: #000000;
+
+      font-weight: bold;
+
+      cursor: pointer;
+
+      transition: 0.2s;
+    }
+
+    #searchButton:hover {
+      background: #dddddd;
+
+      box-shadow:
+        0 0 15px rgba(255, 255, 255, 0.15);
+    }
+
+    /* APLICATIVOS */
+
+    .apps {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 9px;
+
+      margin-top: 25px;
+    }
+
+    .app {
+      padding: 13px 10px;
+
+      background: #050505;
+
+      border: 1px solid #252525;
+
+      border-radius: 9px;
+
+      color: #cccccc;
+
+      cursor: pointer;
+
+      transition: 0.2s;
+    }
+
+    .app:hover {
+      border-color: #ffffff;
+
+      color: white;
+
+      background: #111111;
+
+      box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.08);
+
+      transform: translateY(-2px);
+    }
+
+    .icon {
+      display: block;
+
+      margin-bottom: 5px;
+
+      font-size: 20px;
+    }
+
+    /* MENSAGEM */
+
+    .message {
+      min-height: 20px;
+
+      margin-top: 18px;
+
+      color: #ffffff;
+
+      font-size: 13px;
+    }
+
+    /* RODAPÉ */
+
+    .footer {
+      margin-top: 25px;
+
+      color: #444444;
+
+      font-size: 11px;
+
+      letter-spacing: 1px;
+    }
+
+    .footer span {
+      color: #888888;
+    }
+
+    /* CELULAR */
+
+    @media (max-width: 420px) {
+
+      .card {
+        padding: 24px 18px;
+      }
+
+      .logo {
+        font-size: 29px;
+      }
+
+      .search-box {
+        flex-direction: column;
+      }
+
+      #searchButton {
+        padding: 13px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .slogan {
+        animation: none;
+      }
+
+      .app {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="card">
+
+    <h1 class="logo">
+      WhiteNov <span>XY</span>
+    </h1>
+
+    <div class="slogan">
+      Explore. Conecte-se. Vá além.
+    </div>
+
+    <div class="subtitle">
+      Direcionador de aplicativos e sites
+    </div>
+
+    <div class="search-box">
+
+      <input
+        type="text"
+        id="appName"
+        placeholder="Digite o nome completo..."
+        autocomplete="off"
+      >
+
+      <button
+        id="searchButton"
+        onclick="irParaApp()">
+        IR
+      </button>
+
+    </div>
+
+    <section class="apps">
+
+      <div class="app" onclick="abrirApp('youtube')">
+        <span class="icon">▶️</span>
+        YouTube
+      </div>
+
+      <div class="app" onclick="abrirApp('instagram')">
+        <span class="icon">📷</span>
+        Instagram
+      </div>
+
+      <div class="app" onclick="abrirApp('whatsapp')">
+        <span class="icon">💬</span>
+        WhatsApp
+      </div>
+
+      <div class="app" onclick="abrirApp('tiktok')">
+        <span class="icon">🎵</span>
+        TikTok
+      </div>
+
+      <div class="app" onclick="abrirApp('discord')">
+        <span class="icon">🎮</span>
+        Discord
+      </div>
+
+      <div class="app" onclick="abrirApp('spotify')">
+        <span class="icon">🎧</span>
+        Spotify
+      </div>
+
+      <div class="app" onclick="abrirApp('github')">
+        <span class="icon">💻</span>
+        GitHub
+      </div>
+
+      <div class="app" onclick="abrirApp('reddit')">
+        <span class="icon">🔴</span>
+        Reddit
+      </div>
+
+      <div class="app" onclick="abrirApp('twitch')">
+        <span class="icon">🟣</span>
+        Twitch
+      </div>
+
+      <div class="app" onclick="abrirApp('google')">
+        <span class="icon">🔎</span>
+        Google
+      </div>
+
+      <div class="app" onclick="abrirApp('gmail')">
+        <span class="icon">✉️</span>
+        Gmail
+      </div>
+
+      <div class="app" onclick="abrirApp('telegram')">
+        <span class="icon">✈️</span>
+        Telegram
+      </div>
+
+      <div class="app" onclick="abrirApp('facebook')">
+        <span class="icon">📘</span>
+        Facebook
+      </div>
+
+      <div class="app" onclick="abrirApp('x')">
+        <span class="icon">𝕏</span>
+        X
+      </div>
+
+      <div class="app" onclick="abrirApp('steam')">
+        <span class="icon">🎮</span>
+        Steam
+      </div>
+
+      <div class="app" onclick="abrirApp('roblox')">
+        <span class="icon">🟥</span>
+        Roblox
+      </div>
+
+      <div class="app" onclick="abrirApp('netflix')">
+        <span class="icon">🎬</span>
+        Netflix
+      </div>
+
+      <div class="app" onclick="abrirApp('primevideo')">
+        <span class="icon">📺</span>
+        Prime Video
+      </div>
+
+      <div class="app" onclick="abrirApp('crunchyroll')">
+        <span class="icon">🍥</span>
+        Crunchyroll
+      </div>
+
+      <div class="app" onclick="abrirApp('pinterest')">
+        <span class="icon">📌</span>
+        Pinterest
+      </div>
+
+      <div class="app" onclick="abrirApp('linkedin')">
+        <span class="icon">💼</span>
+        LinkedIn
+      </div>
+
+      <div class="app" onclick="abrirApp('chatgpt')">
+        <span class="icon">🤖</span>
+        ChatGPT
+      </div>
+
+      <div class="app" onclick="abrirApp('googledrive')">
+        <span class="icon">☁️</span>
+        Google Drive
+      </div>
+
+      <div class="app" onclick="abrirApp('googlemaps')">
+        <span class="icon">🗺️</span>
+        Google Maps
+      </div>
+
+      <div class="app" onclick="abrirApp('playstore')">
+        <span class="icon">▶️</span>
+        Play Store
+      </div>
+
+    </section>
+
+    <div class="message" id="message"></div>
+
+    <div class="footer">
+      WHITENOV <span>XY</span> • APP DIRECTOR
+    </div>
+
+  </main>
+
+  <script>
+
+    const apps = {
+
+      youtube: "https://www.youtube.com",
+      instagram: "https://www.instagram.com",
+      whatsapp: "https://web.whatsapp.com",
+      tiktok: "https://www.tiktok.com",
+      discord: "https://discord.com",
+      spotify: "https://open.spotify.com",
+      github: "https://github.com",
+      reddit: "https://www.reddit.com",
+      twitch: "https://www.twitch.tv",
+      google: "https://www.google.com",
+      gmail: "https://mail.google.com",
+      telegram: "https://web.telegram.org",
+      facebook: "https://www.facebook.com",
+      x: "https://x.com",
+      steam: "https://store.steampowered.com",
+      roblox: "https://www.roblox.com",
+      netflix: "https://www.netflix.com",
+      primevideo: "https://www.primevideo.com",
+      crunchyroll: "https://www.crunchyroll.com",
+      pinterest: "https://www.pinterest.com",
+      linkedin: "https://www.linkedin.com",
+      chatgpt: "https://chatgpt.com",
+      googledrive: "https://drive.google.com",
+      googlemaps: "https://maps.google.com",
+      playstore: "https://play.google.com/store"
+
+    };
+
+
+    function abrirApp(nome) {
+
+      if (apps[nome]) {
+
+        window.location.href = apps[nome];
+
+      }
+
+    }
+
+
+    function irParaApp() {
+
+      const input =
+        document
+          .getElementById("appName")
+          .value
+          .toLowerCase()
+          .trim();
+
+      const message =
+        document.getElementById("message");
+
+
+      if (input === "") {
+
+        message.textContent =
+          "Digite o nome de um aplicativo ou site.";
+
+        return;
+
+      }
+
+
+      if (apps[input]) {
+
+        message.textContent =
+          "Abrindo " + input + "...";
+
+
+        setTimeout(() => {
+
+          window.location.href =
+            apps[input];
+
+        }, 300);
+
+        return;
+
+      }
+
+
+      message.textContent =
+        "Não encontrado. Pesquisando na Play Store...";
+
+
+      setTimeout(() => {
+
+        window.location.href =
+          "https://play.google.com/store/search?q=" +
+          encodeURIComponent(input) +
+          "&c=apps";
+
+      }, 500);
+
+    }
+
+
+    document
+      .getElementById("appName")
+      .addEventListener("keydown", function(event) {
+
+        if (event.key === "Enter") {
+
+          irParaApp();
+
+        }
+
+      });
+
+  </script>
+
+</body>
+</html>
